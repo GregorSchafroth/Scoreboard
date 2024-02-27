@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basketball Scoreboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <style>
+    body,
+    h1 {
+      margin: 0;
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+    }
+
+    .score-board {
+      display: flex;
+    }
+
+    .team-container {
+      border-style: solid;
+      border-width: 1px;
+      border-color: grey;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .home-score,
+    .guest-score {
+      font-size: 55px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .reset-button {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="score-board">
+    <div class="team-container">
+      <h1>Home</h1>
+      <p class="home-score" id="js-hs">0</p>
+      <button id="js-h1">+1</button>
+      <button id="js-h2">+2</button>
+      <button id="js-h3">+3</button>
+    </div>
+    <div class="team-container">
+      <h1>Guest</h1>
+      <p class="guest-score" id="js-gs">0</p>
+      <button id="js-g1">+1</button>
+      <button id="js-g2">+2</button>
+      <button id="js-g3">+3</button>
+    </div>
+  </div>
+  <button class="reset-button" id="js-reset">RESET</button>
+
+  <script>
+    let homeScore = 0;
+    let guestScore = 0;
+
+    document.getElementById("js-h1").addEventListener("click", homeOne);
+    document.getElementById("js-h2").addEventListener("click", homeTwo);
+    document.getElementById("js-h3").addEventListener("click", homeThree);
+    document.getElementById("js-g1").addEventListener("click", guestOne);
+    document.getElementById("js-g2").addEventListener("click", guestTwo);
+    document.getElementById("js-g3").addEventListener("click", guestThree);
+
+    function homeOne() {
+      homeScore += 1;
+      document.getElementById("js-hs").textContent = homeScore;
+    }
+
+    function homeTwo() {
+      homeScore += 2;
+      document.getElementById("js-hs").textContent = homeScore;
+    }
+
+    function homeThree() {
+      homeScore += 3;
+      document.getElementById("js-hs").textContent = homeScore;
+    }
+
+    function guestOne() {
+      guestScore += 1;
+      document.getElementById("js-gs").textContent = guestScore;
+    }
+
+    function guestTwo() {
+      guestScore += 2;
+      document.getElementById("js-gs").textContent = guestScore;
+    }
+
+    function guestThree() {
+      guestScore += 3;
+      document.getElementById("js-gs").textContent = guestScore;
+    }
+
+    document.getElementById("js-reset").addEventListener("click", resetScores)
+
+    function resetScores() {
+      homeScore = 0;
+      guestScore = 0;
+      document.getElementById("js-hs").textContent = homeScore;
+      document.getElementById("js-gs").textContent = guestScore;
+    }
+
+  </script>
+</body>
+
+</html>
